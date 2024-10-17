@@ -1,7 +1,13 @@
 /* eslint-disable */
 export class HolbertonClass {
     constructor(year, location) {
+        if (typeof year !== 'number') {
+            throw new Error('Year must be a number');
+        }
         this._year = year;
+        if (typeof location !== 'string') {
+            throw new Error('Location must be a string');
+        }
         this._location = location;
     }
 
@@ -16,8 +22,16 @@ export class HolbertonClass {
 
 export class StudentHolberton {
     constructor(firstName, lastName, holbertonClass) {
+        if (typeof firstName !== 'string' || typeof lastName !== 'string') {
+            throw new Error('First Name and Last Name must be strings');
+        }
         this._firstName = firstName;
         this._lastName = lastName;
+        lastName;
+
+        if (!(holbertonClass instanceof HolbertonClass)) {
+            throw new Error('Holberton Class must be an instance of HolbertonClass');
+        }
         this._holbertonClass = holbertonClass;
     }
 
